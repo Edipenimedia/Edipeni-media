@@ -276,23 +276,64 @@ window.deleteNews=async id=>{
 
 async function saveNews(){
  const title=$("newsTitle").value.trim();
- if(!title){$("saveMsg").textContent="Judul wajib diisi.";return}
- const payload={
-  title,
-  slug:$("newsSlug").value.trim()||slug(title),
-  excerpt:$("newsExcerpt").value.trim(),
-  content:$("newsContent").value.trim(),
-  image_url:$("newsImage").value.trim(),
-  category:$("newsCategory").value.trim()||"Berita",
-  published_at:new Date().toISOString()
- };
- $("saveMsg").textContent="Menyimpan...";
- const result=editingId?await db.from("news").update(payload).eq("id",editingId):await db.from("news").insert(payload);
- if(result.error){$("saveMsg").textContent="Gagal: "+result.error.message;return}
- resetForm();
- $("saveMsg").textContent="Berhasil disimpan.";
- await loadAdminNews();
- await loadPublicNews()
+async function saveNews(){
+  const title=$("newsTitle").value.trim();
+  if(!title){
+    $("saveMsg").textContent="Judul wajib diisi.";
+    return;
+  }
+
+  $("saveMsg").textContent="Menyimpan...";
+
+  let imageUrl=$("newsImage").value.trim();
+  const file=$("newsImageFile").files[0];
+
+  if(file){
+    const ext=file.name.split(".").pop().toLowerCase();
+    const fileName=`${Date.now()}-${crypto.randomUUID()}.${ext}`;
+
+    const {error:uploadError}=await db.storage
+      .from("News-images")
+      .upload(fileName,file,{
+        upsert:false,
+        contentType:file.type
+      });
+
+    if(uploadError){
+      $("saveMsg").textContent="Gagal upload foto: "+uploadError.message;
+      return;
+    }
+
+    const {data:urlData}=db.storage
+      .from("News-images")
+      .getPublicUrl(fileName);
+
+    imageUrl=urlData.publicUrl;
+  }
+
+  const payload={
+    title,
+    slug:$("newsSlug").value.trim()||slug(title),
+    excerpt:$("newsExcerpt").value.trim(),
+    content:$("newsContent").value.trim(),
+    image_url:imageUrl,
+    category:$("newsCategory").value.trim()||"Berita",
+    published_at:new Date().toISOString()
+  };
+
+  const result=editingId
+    ?await db.from("news").update(payload).eq("id",editingId)
+    :await db.from("news").insert(payload);
+
+  if(result.error){
+    $("saveMsg").textContent="Gagal: "+result.error.message;
+    return;
+  }
+
+  resetForm();
+  $("saveMsg").textContent="Berhasil disimpan.";
+  await loadAdminNews();
+  await loadPublicNews();
 }
 
 $("loginBtn").addEventListener("click",login);
