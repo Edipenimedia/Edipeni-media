@@ -17,6 +17,14 @@
 <section class="hero" id="beranda"><div><div class="eyebrow">Media Informasi Lokal</div><h1>EDIPENI MEDIA</h1><div class="hero-card"><strong>Suara Desa, Membangun Indonesia.</strong><br>Ruang informasi lokal untuk berita, kegiatan, dan cerita dari masyarakat.</div></div></section>
 <main>
 <section class="section" id="berita"><div class="section-head"><div><h2>Berita Terkini</h2><div class="muted">Informasi terbaru dari Edipeni Media.</div></div></div><div id="newsList" class="news-grid"><div class="news-empty">Memuat berita...</div></div></section>
+  <div class="category-filter">
+  <button onclick="filterNews('Semua')">Semua</button>
+  <button onclick="filterNews('Berita Desa')">Berita Desa</button>
+  <button onclick="filterNews('Munjungan')">Munjungan</button>
+  <button onclick="filterNews('Trenggalek')">Trenggalek</button>
+  <button onclick="filterNews('Olahraga')">Olahraga</button>
+  <button onclick="filterNews('Kegiatan')">Kegiatan</button>
+  </div>
 <section class="section" id="rubrik"><div class="section-head"><div><h2>Rubrik</h2></div></div><div class="cats"><a class="cat" href="#berita">📰 Berita</a><a class="cat" href="#berita">👥 Masyarakat</a><a class="cat" href="#berita">🏘️ Desa</a><a class="cat" href="#berita">🏐 Olahraga</a></div></section>
 <section class="section" id="galeri"><div class="section-head"><div><h2>Galeri</h2><div class="muted">Dokumentasi Edipeni Media.</div></div></div><div class="card"><div class="photo"><img src="https://ppwcvkfvcxalcpiqzyln.supabase.co/storage/v1/object/public/News-images/penutup_edipeni_media_follow_sosmed_facebook_4x5-1.png" alt="Edipeni Media"></div></div></section>
 <section class="section" id="tentang"><div class="section-head"><div><h2>Tentang Edipeni Media</h2></div></div><div class="admin-box"><strong>Suara Desa, Membangun Indonesia.</strong><p>Edipeni Media merupakan media informasi lokal yang menyajikan berita, kegiatan, dan informasi masyarakat secara digital.</p></div></section>
@@ -38,7 +46,9 @@ function date(v){return v?new Intl.DateTimeFormat("id-ID",{dateStyle:"long",time
 function slug(t){return t.toLowerCase().trim().replace(/[^a-z0-9\s-]/g,"").replace(/\s+/g,"-").replace(/-+/g,"-")}
 
 async function loadPublicNews(){
-  const {data,error}=await db.from("news").select("*").order("published_at",{ascending:false});
+  let query=db.from("news").select("*").order("published_at",{ascending:false});
+if(currentCategory!=="Semua")query=query.eq("category",currentCategory);
+const {data,error}=await query;
   const b=$("newsList");
 
   if(error){
@@ -93,7 +103,12 @@ window.showNews=async id=>{
   `;
 };
 
-async function refreshAdmin(){
+let currentCategory="Semua";
+  function filterNews(category){
+  currentCategory=category;
+  loadPublicNews();
+  }
+  async function refreshAdmin(){
  const{data:{session}}=await db.auth.getSession();
  if(session){
   $("loginBox").classList.add("hidden");
