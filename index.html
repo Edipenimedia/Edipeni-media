@@ -33,12 +33,60 @@ function date(v){return v?new Intl.DateTimeFormat("id-ID",{dateStyle:"long",time
 function slug(t){return t.toLowerCase().trim().replace(/[^a-z0-9\s-]/g,"").replace(/\s+/g,"-").replace(/-+/g,"-")}
 
 async function loadPublicNews(){
- const{data,error}=await db.from("news").select("id,title,slug,excerpt,content,image_url,category,published_at").not("published_at","is",null).order("published_at",{ascending:false});
- const b=$("newsList");
- if(error){b.innerHTML='<div class="news-empty">Berita belum dapat dimuat.</div>';return}
- if(!data?.length){b.innerHTML='<div class="news-empty">Belum ada berita yang dipublikasikan.</div>';return}
- b.innerHTML=data.map(n=>`<article class="card"><div class="photo">${n.image_url?`<img src="${esc(n.image_url)}" alt="${esc(n.title)}" loading="lazy">`:"Tidak ada foto"}</div><div class="card-body"><span class="badge">${esc(n.category||"Berita")}</span><h3>${esc(n.title)}</h3><p>${esc(n.excerpt||"")}</p><div class="date">${date(n.published_at)}</div></div></article>`).join("")
+  const {data,error}=await db.from("news").select("*").order("published_at",{ascending:false});
+  const b=$("newsList");
+
+  if(error){
+    b.innerHTML='<div class="news-empty">Berita belum dapat dimuat.</div>';
+    return;
+  }
+
+  if(!data?.length){
+    b.innerHTML='<div class="news-empty">Belum ada berita yang dipublikasikan.</div>';
+    return;
+  }
+
+  b.innerHTML=data.map(n=>`
+    <article class="card">
+      <div class="photo">
+        ${n.image_url?`<img src="${esc(n.image_url)}" alt="${esc(n.title)}">`:""}
+      </div>
+      <div class="card-body">
+        <span class="tag">${esc(n.category||"Berita")}</span>
+        <h3>${esc(n.title)}</h3>
+        <p>${esc(n.excerpt||"")}</p>
+        <div class="date">${date(n.published_at)}</div>
+        <button class="read-btn" onclick="showNews('${n.id}')">Baca selengkapnya →</button>
+      </div>
+    </article>
+  `).join("");
 }
+
+window.showNews=async id=>{
+  const {data:n,error}=await db.from("news").select("*").eq("id",id).single();
+
+  if(error||!n){
+    alert("Berita tidak dapat dibuka.");
+    return;
+  }
+
+  const b=$("newsList");
+
+  b.innerHTML=`
+    <article class="card">
+      <div class="photo">
+        ${n.image_url?`<img src="${esc(n.image_url)}" alt="${esc(n.title)}">`:""}
+      </div>
+      <div class="card-body">
+        <span class="tag">${esc(n.category||"Berita")}</span>
+        <h1>${esc(n.title)}</h1>
+        <div class="date">${date(n.published_at)}</div>
+        <div class="news-content">${esc(n.content||"").replace(/\n/g,"<br>")}</div>
+        <button class="read-btn" onclick="loadPublicNews()">← Kembali ke berita</button>
+      </div>
+    </article>
+  `;
+};
 
 async function refreshAdmin(){
  const{data:{session}}=await db.auth.getSession();
