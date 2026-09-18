@@ -273,10 +273,14 @@ window.deleteNews=async id=>{
  await loadAdminNews();
  await loadPublicNews()
 };
-
+ 
 async function saveNews(){
   const title=$("newsTitle").value.trim();
   if(!title){
+    $("saveMsg").textContent="Judul wajib diisi.";
+    return;
+    };
+ 
 async function saveNews(){
   const title=$("newsTitle").value.trim();
   if(!title){
@@ -285,6 +289,9 @@ async function saveNews(){
   }
 
   $("saveMsg").textContent="Menyimpan...";
+  
+
+  
 
   let imageUrl=$("newsImage").value.trim();
   const file=$("newsImageFile").files[0];
