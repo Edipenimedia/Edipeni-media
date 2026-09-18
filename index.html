@@ -1,54 +1,142 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Edipeni Media — Suara Desa, Membangun Indonesia. Informasi dan berita Munjungan.">
-<title>Edipeni Media — Suara Desa, Membangun Indonesia</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Edipeni Media — Suara Desa, Membangun Indonesia."><title>Edipeni Media — Suara Desa, Membangun Indonesia.</title>
 <style>
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f4f5f7;color:#17202a;font-family:Arial,Helvetica,sans-serif;line-height:1.6}a{text-decoration:none;color:inherit}
-.top{background:#111827;color:#dce2ea;padding:7px 5%;font-size:13px}.wrap{max-width:1180px;margin:auto}
-header{background:#fff;border-bottom:1px solid #e5e7eb;position:sticky;top:0;z-index:20}.nav{display:flex;align-items:center;justify-content:space-between;padding:15px 5%;gap:25px}.brand{font-size:26px;font-weight:900;letter-spacing:-1px}.brand b{color:#c8102e}.menu{display:flex;gap:22px;font-size:14px;font-weight:800}.menu a:hover{color:#c8102e}
-.hero{background:linear-gradient(125deg,#9d0b24,#d51c3b);color:#fff}.hero-in{max-width:1180px;margin:auto;padding:58px 5%;display:grid;grid-template-columns:1.35fr .65fr;gap:35px;align-items:center}.eyebrow{text-transform:uppercase;letter-spacing:2px;font-size:12px;font-weight:900;opacity:.85}.hero h1{font-size:clamp(40px,6vw,70px);line-height:1.02;margin:10px 0 18px}.hero p{font-size:19px;max-width:680px}.hero-card{background:#ffffff18;border:1px solid #ffffff35;border-radius:18px;padding:27px}.hero-card strong{font-size:20px}.btn{display:inline-block;background:#fff;color:#b00e2a;padding:11px 19px;border-radius:8px;font-weight:900;margin-top:8px}
-main{padding:42px 5%}.section{max-width:1180px;margin:0 auto 52px}.head{display:flex;justify-content:space-between;align-items:end;margin-bottom:18px}.head h2{margin:0;font-size:29px}.head a{color:#c8102e;font-weight:800}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.card{background:#fff;border:1px solid #e5e7eb;border-radius:14px;overflow:hidden;box-shadow:0 5px 18px #1018280a}.photo{height:185px;background:linear-gradient(135deg,#dfe3e8,#bbc3cd);display:flex;align-items:center;justify-content:center;color:#5e6875;font-weight:900}.body{padding:17px}.tag{font-size:11px;color:#c8102e;font-weight:900;text-transform:uppercase;letter-spacing:.7px}.card h3{font-size:19px;line-height:1.3;margin:7px 0}.date{font-size:12px;color:#727b87}.card p{color:#5d6672;margin-bottom:0}
-.newsletter{background:#111827;color:#fff;border-radius:18px;padding:30px}.newsletter h2{margin:0 0 8px}.newsletter p{color:#cbd3de}.social{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.social a{background:#273244;padding:9px 14px;border-radius:8px;font-weight:800}
-.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.cat{background:#fff;border:1px solid #e5e7eb;padding:20px;border-radius:12px;font-weight:900}.cat:hover{border-color:#c8102e;color:#c8102e}
-footer{background:#0b111b;color:#c9d1dc;padding:34px 5%}.foot{max-width:1180px;margin:auto;display:flex;justify-content:space-between;gap:25px}.foot strong{color:#fff;font-size:21px}
-@media(max-width:800px){.menu{display:none}.hero-in{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.cats{grid-template-columns:1fr 1fr}.foot{flex-direction:column}}
-</style>
-</head>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f4f7f8;color:#17212b;line-height:1.6}a{color:inherit}.top{background:#111827;color:#dce2ea;padding:9px 5%;font-size:14px}header{background:#fff;border-bottom:1px solid #e5e7eb;position:sticky;top:0;z-index:10}.nav{max-width:1100px;margin:auto;padding:16px 5%;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-size:22px;font-weight:800;text-decoration:none;letter-spacing:.5px}.menu{display:flex;gap:18px;flex-wrap:wrap}.menu a{text-decoration:none;font-weight:700;font-size:14px}.hero{background:linear-gradient(125deg,#111827,#1f2937 55%,#0f766e);color:#fff}.hero>div{max-width:1100px;margin:auto;padding:64px 5%}.eyebrow{font-size:14px;letter-spacing:2px;text-transform:uppercase;opacity:.8}.hero h1{font-size:clamp(34px,7vw,64px);line-height:1.02;margin:10px 0}.hero-card{max-width:680px;font-size:18px}main{padding:42px 5%}.section{max-width:1100px;margin:0 auto 55px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:15px;margin-bottom:20px}.section h2{margin:0;font-size:30px}.muted{color:#667085}.cats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.cat{display:block;padding:18px;background:#fff;border:1px solid #e5e7eb;border-radius:14px;text-decoration:none;font-weight:700}.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;overflow:hidden;box-shadow:0 5px 18px rgba(16,24,40,.05)}.photo{height:190px;background:#e9eef1;display:flex;align-items:center;justify-content:center;overflow:hidden;color:#667085;font-weight:700}.photo img{width:100%;height:100%;object-fit:cover}.card-body{padding:18px}.badge{display:inline-block;font-size:12px;font-weight:800;padding:5px 9px;border-radius:999px;background:#e8f3f1;color:#0f766e}.card h3{margin:10px 0 7px;font-size:20px;line-height:1.25}.card p{margin:0 0 12px;color:#667085;font-size:14px}.date{font-size:12px;color:#98a2b3}.news-empty{padding:30px;background:#fff;border:1px dashed #cbd5e1;border-radius:14px;color:#667085}.admin-box{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:22px}input,textarea,select{width:100%;padding:12px 13px;border:1px solid #cbd5e1;border-radius:10px;font:inherit;margin:6px 0 12px}textarea{min-height:130px;resize:vertical}button{border:0;border-radius:10px;padding:11px 16px;font:inherit;font-weight:800;cursor:pointer;background:#0f766e;color:#fff}button.secondary{background:#e5e7eb;color:#17212b}button.danger{background:#b42318}.actions{display:flex;gap:8px;flex-wrap:wrap}.admin-row{border-top:1px solid #e5e7eb;padding:16px 0;display:flex;justify-content:space-between;gap:15px;align-items:center}.login-note{font-size:13px;color:#667085}.hidden{display:none!important}footer{background:#0b111b;color:#c9d1dc;padding:35px 5%;margin-top:30px}.foot{max-width:1100px;margin:auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}footer a{color:#fff}@media(max-width:800px){.menu{display:none}.news-grid{grid-template-columns:1fr}.cats{grid-template-columns:1fr}.nav{padding:14px 5%}.hero>div{padding:50px 5%}.admin-row{align-items:flex-start;flex-direction:column}}
+</style></head>
 <body>
 <div class="top">Munjungan • Trenggalek • Jawa Timur</div>
-<header><div class="nav wrap">
-<a class="brand" href="#beranda">EDIPENI <b>MEDIA</b></a>
-<nav class="menu"><a href="#beranda">Beranda</a><a href="#berita">Berita</a><a href="#rubrik">Rubrik</a><a href="#galeri">Galeri</a><a href="#tentang">Tentang</a></nav>
-</div></header>
-
-<section class="hero" id="beranda"><div class="hero-in">
-<div><div class="eyebrow">Media Informasi Lokal</div><h1>Suara Desa,<br>Membangun Indonesia.</h1><p>Kabar, kegiatan, informasi, dan cerita dari Munjungan. Satu ruang untuk mengikuti perkembangan desa dan masyarakat.</p><a class="btn" href="#berita">Lihat Berita</a></div>
-<div class="hero-card"><strong>EDIPENI MEDIA</strong><p>Media informasi dan publikasi lokal Munjungan. Halaman ini dapat dikembangkan menjadi portal berita dengan artikel, foto kegiatan, agenda, dan galeri.</p></div>
-</div></section>
-
+<header><div class="nav"><a class="brand" href="#beranda">EDIPENI MEDIA</a><nav class="menu"><a href="#beranda">Beranda</a><a href="#berita">Berita</a><a href="#rubrik">Rubrik</a><a href="#galeri">Galeri</a><a href="#tentang">Tentang</a><a href="#admin">Admin</a></nav></div></header>
+<section class="hero" id="beranda"><div><div class="eyebrow">Media Informasi Lokal</div><h1>EDIPENI MEDIA</h1><div class="hero-card"><strong>Suara Desa, Membangun Indonesia.</strong><br>Ruang informasi lokal untuk berita, kegiatan, dan cerita dari masyarakat.</div></div></section>
 <main>
-<section class="section" id="berita"><div class="head"><h2>Berita Munjungan</h2><a href="#">Semua berita →</a></div><div class="grid">
-<article class="card"><div class="photo">FOTO BERITA</div><div class="body"><div class="tag">Berita Munjungan</div><h3>Judul berita terbaru ditampilkan di sini</h3><div class="date">18 September 2026</div><p>Ganti bagian ini dengan ringkasan berita. Foto dan artikel dapat ditambahkan kemudian.</p></div></article>
-<article class="card"><div class="photo">FOTO KEGIATAN</div><div class="body"><div class="tag">Kegiatan Desa</div><h3>Informasi kegiatan masyarakat dan desa</h3><div class="date">18 September 2026</div><p>Tempat untuk menampilkan kegiatan, agenda, dokumentasi, dan informasi publik.</p></div></article>
-<article class="card"><div class="photo">FOTO PERISTIWA</div><div class="body"><div class="tag">Informasi</div><h3>Kabar lokal yang perlu diketahui warga</h3><div class="date">18 September 2026</div><p>Ringkasan singkat artikel akan tampil pada halaman utama website.</p></div></article>
-</div></section>
-
-<section class="section" id="rubrik"><div class="head"><h2>Rubrik</h2></div><div class="cats">
-<a class="cat" href="#">📰 Berita</a><a class="cat" href="#">🏛️ Desa</a><a class="cat" href="#">🏐 Olahraga</a><a class="cat" href="#">🎭 Budaya</a>
-<a class="cat" href="#">👥 Masyarakat</a><a class="cat" href="#">📅 Agenda</a><a class="cat" href="#">📸 Galeri</a><a class="cat" href="#">📢 Pengumuman</a>
-</div></section>
-
-<section class="section" id="galeri"><div class="head"><h2>Galeri Kegiatan</h2><a href="#">Lihat semua →</a></div><div class="grid">
-<div class="card"><div class="photo">GALERI FOTO</div></div><div class="card"><div class="photo">GALERI FOTO</div></div><div class="card"><div class="photo">GALERI FOTO</div></div>
-</div></section>
-
-<section class="section" id="tentang"><div class="newsletter"><div class="eyebrow">Ikuti Edipeni Media</div><h2>Informasi Munjungan di satu tempat.</h2><p>Website ini dapat menjadi pusat tautan menuju berita, dokumentasi, dan media sosial Edipeni Media.</p><div class="social">
-<a href="https://instagram.com/edipeni.media">Instagram</a><a href="https://threads.net/@edipeni.media">Threads</a><a href="https://tiktok.com/@edipenimedia">TikTok</a><a href="https://youtube.com/@EdipeniMedia">YouTube</a>
-</div></div></section>
+<section class="section" id="berita"><div class="section-head"><div><h2>Berita Terkini</h2><div class="muted">Informasi terbaru dari Edipeni Media.</div></div></div><div id="newsList" class="news-grid"><div class="news-empty">Memuat berita...</div></div></section>
+<section class="section" id="rubrik"><div class="section-head"><div><h2>Rubrik</h2></div></div><div class="cats"><a class="cat" href="#berita">📰 Berita</a><a class="cat" href="#berita">👥 Masyarakat</a><a class="cat" href="#berita">🏘️ Desa</a><a class="cat" href="#berita">🏐 Olahraga</a></div></section>
+<section class="section" id="galeri"><div class="section-head"><div><h2>Galeri</h2><div class="muted">Dokumentasi Edipeni Media.</div></div></div><div class="card"><div class="photo"><img src="https://ppwcvkfvcxalcpiqzyln.supabase.co/storage/v1/object/public/News-images/penutup_edipeni_media_follow_sosmed_facebook_4x5-1.png" alt="Edipeni Media"></div></div></section>
+<section class="section" id="tentang"><div class="section-head"><div><h2>Tentang Edipeni Media</h2></div></div><div class="admin-box"><strong>Suara Desa, Membangun Indonesia.</strong><p>Edipeni Media merupakan media informasi lokal yang menyajikan berita, kegiatan, dan informasi masyarakat secara digital.</p></div></section>
+<section class="section" id="admin"><div class="section-head"><div><h2>Admin Berita</h2><div class="muted">Kelola berita Edipeni Media melalui Supabase.</div></div></div>
+<div id="loginBox" class="admin-box"><h3>Login Admin</h3><label>Email</label><input id="loginEmail" type="email" placeholder="Email admin"><label>Password</label><input id="loginPassword" type="password" placeholder="Password"><div class="actions"><button id="loginBtn">Login</button></div><p id="loginMsg" class="login-note"></p></div>
+<div id="adminPanel" class="admin-box hidden"><div class="section-head"><div><h3 id="formTitle">Tambah Berita</h3><div id="adminUser" class="login-note"></div></div><div class="actions"><button id="logoutBtn" class="secondary">Logout</button></div></div><label>Judul</label><input id="newsTitle" placeholder="Judul berita"><label>Slug</label><input id="newsSlug" placeholder="contoh-judul-berita"><label>Ringkasan</label><textarea id="newsExcerpt" placeholder="Ringkasan singkat berita"></textarea><label>Isi berita</label><textarea id="newsContent" placeholder="Isi lengkap berita"></textarea><label>URL gambar</label><input id="newsImage" placeholder="https://.../storage/v1/object/public/News-images/nama-file.jpg"><label>Kategori</label><input id="newsCategory" placeholder="Berita"><div class="actions"><button id="saveBtn">Simpan Berita</button><button id="cancelBtn" class="secondary hidden">Batal Edit</button></div><p id="saveMsg" class="login-note"></p><h3>Daftar Berita</h3><div id="adminNewsList"></div></div></section>
 </main>
+<footer><div class="foot"><div><strong>EDIPENI MEDIA</strong><br>Suara Desa, Membangun Indonesia.</div><div>Follow Edipeni Media:<br><a href="https://instagram.com/edipeni.media" target="_blank">Instagram</a> • <a href="https://threads.net/@edipeni.media" target="_blank">Threads</a> • <a href="https://tiktok.com/@edipenimedia" target="_blank">TikTok</a> • <a href="https://youtube.com/@EdipeniMedia" target="_blank">YouTube</a> • <a href="https://facebook.com/" target="_blank">Facebook</a></div></div></footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const SUPABASE_URL="https://ppwcvkfvcxalcpiqzyln.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY="sb_publishable_uIrhTrJcDqfJnt9jFIM4mw_K8F6jH3-";
+const db=supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
+const $=id=>document.getElementById(id);
+let editingId=null;
 
-<footer><div class="foot"><div><strong>EDIPENI MEDIA</strong><br>Suara Desa, Membangun Indonesia.</div><div>Informasi dan publikasi Munjungan<br>© 2026 Edipeni Media</div></div></footer>
-</body></html>
+function esc(v=""){return String(v).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}
+function date(v){return v?new Intl.DateTimeFormat("id-ID",{dateStyle:"long",timeStyle:"short"}).format(new Date(v)):""}
+function slug(t){return t.toLowerCase().trim().replace(/[^a-z0-9\s-]/g,"").replace(/\s+/g,"-").replace(/-+/g,"-")}
+
+async function loadPublicNews(){
+ const{data,error}=await db.from("news").select("id,title,slug,excerpt,content,image_url,category,published_at").not("published_at","is",null).order("published_at",{ascending:false});
+ const b=$("newsList");
+ if(error){b.innerHTML='<div class="news-empty">Berita belum dapat dimuat.</div>';return}
+ if(!data?.length){b.innerHTML='<div class="news-empty">Belum ada berita yang dipublikasikan.</div>';return}
+ b.innerHTML=data.map(n=>`<article class="card"><div class="photo">${n.image_url?`<img src="${esc(n.image_url)}" alt="${esc(n.title)}" loading="lazy">`:"Tidak ada foto"}</div><div class="card-body"><span class="badge">${esc(n.category||"Berita")}</span><h3>${esc(n.title)}</h3><p>${esc(n.excerpt||"")}</p><div class="date">${date(n.published_at)}</div></div></article>`).join("")
+}
+
+async function refreshAdmin(){
+ const{data:{session}}=await db.auth.getSession();
+ if(session){
+  $("loginBox").classList.add("hidden");
+  $("adminPanel").classList.remove("hidden");
+  $("adminUser").textContent="Login sebagai "+session.user.email;
+  loadAdminNews()
+ }else{
+  $("loginBox").classList.remove("hidden");
+  $("adminPanel").classList.add("hidden")
+ }
+}
+
+async function loadAdminNews(){
+ const{data,error}=await db.from("news").select("*").order("created_at",{ascending:false});
+ const b=$("adminNewsList");
+ if(error){b.innerHTML='<p class="login-note">Daftar berita belum dapat dimuat. Pastikan policy RLS sudah benar.</p>';return}
+ if(!data.length){b.innerHTML='<p class="login-note">Belum ada berita.</p>';return}
+ b.innerHTML=data.map(n=>`<div class="admin-row"><div><strong>${esc(n.title)}</strong><br><span class="login-note">${esc(n.category||"Berita")} • ${n.published_at?"Terbit "+date(n.published_at):"Draft"}</span></div><div class="actions"><button class="secondary" onclick="editNews('${n.id}')">Edit</button><button class="danger" onclick="deleteNews('${n.id}')">Hapus</button></div></div>`).join("")
+}
+
+async function login(){
+ $("loginMsg").textContent="Memproses...";
+ const{error}=await db.auth.signInWithPassword({email:$("loginEmail").value.trim(),password:$("loginPassword").value});
+ if(error){$("loginMsg").textContent="Login gagal: "+error.message;return}
+ $("loginMsg").textContent="";
+ await refreshAdmin();
+ location.hash="admin"
+}
+
+async function logout(){
+ await db.auth.signOut();
+ editingId=null;
+ resetForm();
+ await refreshAdmin()
+}
+
+function resetForm(){
+ editingId=null;
+ $("formTitle").textContent="Tambah Berita";
+ ["newsTitle","newsSlug","newsExcerpt","newsContent","newsImage","newsCategory"].forEach(id=>$(id).value="");
+ $("cancelBtn").classList.add("hidden");
+ $("saveMsg").textContent=""
+}
+
+window.editNews=async id=>{
+ const{data,error}=await db.from("news").select("*").eq("id",id).single();
+ if(error){alert(error.message);return}
+ editingId=id;
+ $("formTitle").textContent="Edit Berita";
+ $("newsTitle").value=data.title||"";
+ $("newsSlug").value=data.slug||"";
+ $("newsExcerpt").value=data.excerpt||"";
+ $("newsContent").value=data.content||"";
+ $("newsImage").value=data.image_url||"";
+ $("newsCategory").value=data.category||"";
+ $("cancelBtn").classList.remove("hidden");
+ location.hash="admin"
+};
+
+window.deleteNews=async id=>{
+ if(!confirm("Hapus berita ini?"))return;
+ const{error}=await db.from("news").delete().eq("id",id);
+ if(error){alert("Gagal menghapus: "+error.message);return}
+ await loadAdminNews();
+ await loadPublicNews()
+};
+
+async function saveNews(){
+ const title=$("newsTitle").value.trim();
+ if(!title){$("saveMsg").textContent="Judul wajib diisi.";return}
+ const payload={
+  title,
+  slug:$("newsSlug").value.trim()||slug(title),
+  excerpt:$("newsExcerpt").value.trim(),
+  content:$("newsContent").value.trim(),
+  image_url:$("newsImage").value.trim(),
+  category:$("newsCategory").value.trim()||"Berita",
+  published_at:new Date().toISOString()
+ };
+ $("saveMsg").textContent="Menyimpan...";
+ const result=editingId?await db.from("news").update(payload).eq("id",editingId):await db.from("news").insert(payload);
+ if(result.error){$("saveMsg").textContent="Gagal: "+result.error.message;return}
+ resetForm();
+ $("saveMsg").textContent="Berhasil disimpan.";
+ await loadAdminNews();
+ await loadPublicNews()
+}
+
+$("loginBtn").addEventListener("click",login);
+$("logoutBtn").addEventListener("click",logout);
+$("saveBtn").addEventListener("click",saveNews);
+$("cancelBtn").addEventListener("click",resetForm);
+$("newsTitle").addEventListener("input",()=>{if(!$("newsSlug").value)$("newsSlug").value=slug($("newsTitle").value)});
+db.auth.onAuthStateChange(()=>refreshAdmin());
+loadPublicNews();
+refreshAdmin();
+</script>
+</body>
+</html>
