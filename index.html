@@ -275,7 +275,8 @@ window.deleteNews=async id=>{
 };
 
 async function saveNews(){
- const title=$("newsTitle").value.trim();
+  const title=$("newsTitle").value.trim();
+  if(!title){
 async function saveNews(){
   const title=$("newsTitle").value.trim();
   if(!title){
