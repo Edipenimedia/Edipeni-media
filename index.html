@@ -4,764 +4,321 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Edipeni Media — Suara Desa, Membangun Indonesia.">
+<meta name="theme-color" content="#111827">
 <title>Edipeni Media — Suara Desa, Membangun Indonesia.</title>
-<style>
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f4f7f8;color:#17212b;line-height:1.6}
-a{color:inherit}
-.top{background:#111827;color:#dce2ea;padding:9px 16px;font-size:13px;text-align:center}
-header{background:#fff;border-bottom:1px solid #e5e7eb;position:sticky;top:0;z-index:10}
-.nav{max-width:1100px;margin:auto;padding:13px 5%;display:flex;align-items:center;justify-content:space-between}
-.brand{font-size:21px;font-weight:800;text-decoration:none}
-.menu{display:flex;gap:18px}
-.menu a{text-decoration:none;font-weight:700;font-size:14px}
-.hero{background:linear-gradient(125deg,#111827,#1f2937 55%,#0f766e);color:#fff}
-.hero>div{max-width:1100px;margin:auto;padding:58px 5%}
-.eyebrow{font-size:13px;letter-spacing:2px;text-transform:uppercase;opacity:.8}
-.hero h1{font-size:clamp(38px,7vw,64px);line-height:1;margin:10px 0 16px}
-.hero-card{max-width:680px;font-size:18px}
-main{padding:42px 5%}
-.section{max-width:1100px;margin:0 auto 50px}
-.section-head{display:flex;align-items:end;justify-content:space-between;gap:15px;margin-bottom:18px}
-.section h2{margin:0;font-size:30px}
-.muted,.login-note{color:#667085}
-.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;overflow:hidden;box-shadow:0 5px 18px rgba(16,24,40,.05)}
-.photo{height:200px;background:#e9eef1;display:flex;align-items:center;justify-content:center;overflow:hidden;color:#667085;font-weight:700}
-.photo img{width:100%;height:100%;object-fit:cover}
-.card-body{padding:20px}
-.card h3{margin:9px 0 8px;font-size:20px;line-height:1.3}
-.card-body h1{font-size:32px;line-height:1.25;margin:12px 0}
-.card p{margin:0 0 12px;color:#667085;font-size:14px}
-.tag{display:inline-block;font-size:12px;font-weight:700;padding:5px 10px;border-radius:20px;background:#e8eef5}
-.date{font-size:13px;color:#6b7280;margin:9px 0 16px}
-.news-content{font-size:18px;line-height:1.8;color:#26313d}
-.read-btn,button{border:0;border-radius:10px;padding:11px 16px;font:inherit;font-weight:800;cursor:pointer;background:#0f766e;color:#fff}
-.read-btn{margin-top:6px}
-button.secondary{background:#e5e7eb;color:#17212b}
-button.danger{background:#b42318}
-.actions{display:flex;gap:8px;flex-wrap:wrap}
-.admin-box{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:22px}
-input,textarea{width:100%;padding:12px 13px;border:1px solid #cbd5e1;border-radius:10px;font:inherit;margin:6px 0 12px}
-textarea{min-height:130px;resize:vertical}
-.hidden{display:none!important}
-.news-empty{padding:30px;background:#fff;border:1px dashed #cbd5e1;border-radius:14px;color:#667085}
-.admin-row{border-top:1px solid #e5e7eb;padding:14px 0;display:flex;justify-content:space-between;gap:15px;align-items:center}
-.category-title{max-width:1100px;margin:0 auto 16px;font-size:30px}
-.category-filter{max-width:1100px;margin:0 auto 48px;display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
-.category-filter button{background:#fff;color:#17212b;border:1px solid #e5e7eb;min-height:60px}
-.category-filter button.active{background:#0f766e;color:#fff;border-color:#0f766e}
-.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.cat{display:block;padding:18px;background:#fff;border:1px solid #e5e7eb;border-radius:14px;text-decoration:none;font-weight:700}
-footer{background:#0b111b;color:#c9d1dc;padding:32px 5%;margin-top:30px}
-.foot{max-width:1100px;margin:auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-footer a{color:#fff}
-hr{border:0;border-top:1px solid #e5e7eb;margin:28px 0}
-
-@media(max-width:800px){
-.menu{display:none}
-.hero>div{padding:42px 20px 48px}
-.hero h1{font-size:42px}
-.hero-card{font-size:16px;line-height:1.65}
-main{padding:34px 16px}
-.section{margin-bottom:42px}
-.section h2{font-size:27px}
-.news-grid{grid-template-columns:1fr;gap:18px}
-.photo{height:220px}
-.card-body{padding:18px}
-.card h3{font-size:20px}
-.card-body h1{font-size:25px}
-.read-btn{width:100%;min-height:44px}
-.category-title{font-size:27px}
-.category-filter{grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:38px}
-.category-filter button{min-height:52px;padding:9px 6px;font-size:13px}
-.cats{grid-template-columns:1fr}
-.cat{padding:15px}
-.news-content{font-size:16px}
-.admin-box{padding:16px}
-input,textarea{font-size:16px;padding:13px}
-.admin-row{align-items:flex-start;flex-direction:column}
-.admin-row .actions{width:100%}
-.admin-row .actions button{flex:1}
-footer{padding:28px 18px}
-.foot{flex-direction:column;font-size:14px}
-}
-</style>
-<style>
-#beranda,#berita,#rubrik,#galeri,#tentang,
-.category-title,.category-filter,footer{display:none!important}
-#admin{display:block!important;margin:0 auto!important}
-</style>
 <link rel="manifest" href="./manifest.json">
 <link rel="icon" href="./icon-192.png" type="image/png">
 <link rel="apple-touch-icon" href="./icon-192.png">
-</head>
-<body>
 
-<div class="top">
-Munjungan • Trenggalek • Jawa Timur
-<span id="liveClock" style="font-weight:700;margin-left:8px">--:--:-- WIB</span>
-</div>
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+background:#f4f7f8;
+color:#17212b;
+line-height:1.6
+}
+a{color:inherit}
 
-<header>
-<div class="nav">
-<a class="brand" href="#beranda">EDIPENI MEDIA</a>
-<nav class="menu">
-<a href="#beranda">Beranda</a>
-<a href="#berita">Berita</a>
-<a href="#rubrik">Rubrik</a>
-<a href="#galeri">Galeri</a>
-<a href="#tentang">Tentang</a>
-
-</nav>
-</div>
-</header>
-
-<section class="hero" id="beranda">
-<div>
-<div class="eyebrow">Media Informasi Lokal</div>
-<h1>EDIPENI MEDIA</h1>
-<div class="hero-card">
-<strong>Suara Desa, Membangun Indonesia.</strong><br>
-Ruang informasi lokal untuk berita, kegiatan, dan cerita dari masyarakat.
-</div>
-</div>
-</section>
-
-<main>
-
-<section class="section" id="berita">
-<div class="section-head">
-<div>
-<h2>Berita Terkini</h2>
-<div class="muted">Informasi terbaru dari Edipeni Media.</div>
-</div>
-</div>
-<div id="newsList" class="news-grid">
-<div class="news-empty">Memuat berita...</div>
-</div>
-</section>
-
-<h2 class="category-title">Kategori Berita</h2>
-<div class="category-filter">
-<button type="button" class="active" onclick="filterNews('Semua',this)">Semua</button>
-<button type="button" onclick="filterNews('Berita Desa',this)">Berita Desa</button>
-<button type="button" onclick="filterNews('Munjungan',this)">Munjungan</button>
-<button type="button" onclick="filterNews('Trenggalek',this)">Trenggalek</button>
-<button type="button" onclick="filterNews('Olahraga',this)">Olahraga</button>
-<button type="button" onclick="filterNews('Kegiatan',this)">Kegiatan</button>
-</div>
-
-<section class="section" id="rubrik">
-<div class="section-head"><div><h2>Rubrik</h2></div></div>
-<div class="cats">
-<a class="cat" href="#berita">📰 Berita</a>
-<a class="cat" href="#berita">👥 Masyarakat</a>
-<a class="cat" href="#berita">🏘️ Desa</a>
-<a class="cat" href="#berita">🏐 Olahraga</a>
-</div>
-</section>
-
-<section class="section" id="galeri">
-<div class="section-head">
-<div><h2>Galeri</h2><div class="muted">Dokumentasi Edipeni Media.</div></div>
-</div>
-<div id="galleryList" class="news-grid">
-<div class="news-empty">Memuat galeri...</div>
-</div>
-</section>
-
-<section class="section" id="tentang">
-<div class="section-head"><div><h2>Tentang Edipeni Media</h2></div></div>
-<div class="admin-box">
-<strong>Suara Desa, Membangun Indonesia.</strong>
-<p>Edipeni Media merupakan media informasi lokal yang menyajikan berita, kegiatan, dan informasi masyarakat secara digital.</p>
-</div>
-</section>
-
-<section class="section" id="admin">
-<div class="section-head">
-<div><h2>Admin</h2><div class="muted">Kelola berita dan galeri Edipeni Media.</div></div>
-</div>
-
-<div id="loginBox" class="admin-box">
-<h3>Login Admin</h3>
-<label>Email</label>
-<input id="loginEmail" type="email" autocomplete="username" placeholder="Email admin">
-<label>Password</label>
-<input id="loginPassword" type="password" autocomplete="current-password" placeholder="Password">
-<div class="actions"><button id="loginBtn" type="button">Login</button></div>
-<p id="loginMsg" class="login-note"></p>
-</div>
-
-<div id="adminPanel" class="hidden">
-
-<div class="admin-box">
-<div class="section-head">
-<div>
-<h3 id="formTitle">Tambah Berita</h3>
-<div id="adminUser" class="login-note"></div>
-</div>
-<div class="actions"><button id="logoutBtn" type="button" class="secondary">Logout</button></div>
-</div>
-
-<label>Judul</label>
-<input id="newsTitle" placeholder="Judul berita">
-
-<label>Slug</label>
-<input id="newsSlug" placeholder="contoh-judul-berita">
-
-<label>Ringkasan</label>
-<textarea id="newsExcerpt" placeholder="Ringkasan singkat berita"></textarea>
-
-<label>Isi berita</label>
-<textarea id="newsContent" placeholder="Isi lengkap berita"></textarea>
-
-<label>Foto berita</label>
-<input id="newsImageFile" type="file" accept="image/*">
-<input id="newsImage" placeholder="URL gambar (opsional)">
-<div class="login-note">Foto dari HP otomatis diperkecil jika terlalu besar.</div>
-
-<label>Kategori</label>
-<input id="newsCategory" placeholder="Berita Desa">
-
-<div class="actions">
-<button id="saveBtn" type="button">Simpan Berita</button>
-<button id="cancelBtn" type="button" class="secondary hidden">Batal Edit</button>
-</div>
-<p id="saveMsg" class="login-note"></p>
-
-<h3>Daftar Berita</h3>
-<div id="adminNewsList"></div>
-</div>
-
-<div class="admin-box" style="margin-top:24px">
-<h3>Kelola Galeri</h3>
-<label>Judul Foto</label>
-<input id="galleryTitle" type="text" placeholder="Judul foto">
-<label>Foto</label>
-<input id="galleryImage" type="file" accept="image/*">
-<div class="actions">
-<button id="gallerySaveBtn" type="button">Tambah Foto</button>
-</div>
-<p id="galleryMsg" class="login-note"></p>
-<div id="galleryAdminList"></div>
-</div>
-
-</div>
-</section>
-</main>
-
-<footer>
-<div class="foot">
-<div><strong>EDIPENI MEDIA</strong><br>Suara Desa, Membangun Indonesia.</div>
-<div>
-Follow Edipeni Media:<br>
-<a href="https://instagram.com/edipeni.media" target="_blank">Instagram</a> •
-<a href="https://threads.net/@edipeni.media" target="_blank">Threads</a> •
-<a href="https://tiktok.com/@edipenimedia" target="_blank">TikTok</a> •
-<a href="https://youtube.com/@EdipeniMedia" target="_blank">YouTube</a> •
-<a href="https://facebook.com/" target="_blank">Facebook</a>
-</div>
-</div>
-</footer>
-
-<script>
-(function(){
-  const adminSection = document.getElementById("admin");
-  if (adminSection && window.location.hash === "#admin") {
-    adminSection.classList.remove("hidden");
-  }
-})();
-</script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script>
-"use strict";
-
-const SUPABASE_URL="https://ppwcvkfvcxalcpiqzyln.supabase.co";
-const SUPABASE_PUBLISHABLE_KEY="sb_publishable_uIrhTrJcDqfJnt9jFIM4mw_K8F6jH3-";
-const db=supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
-const $=id=>document.getElementById(id);
-
-let editingId=null;
-let currentCategory="Semua";
-
-function esc(v=""){
-return String(v).replace(/[&<>"']/g,c=>({
-"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
-}[c]));
+.top{
+background:#111827;
+color:#dce2ea;
+padding:9px 16px;
+font-size:13px;
+text-align:center
 }
 
-function formatDate(v){
-if(!v)return "";
-return new Intl.DateTimeFormat("id-ID",{dateStyle:"long",timeStyle:"short"}).format(new Date(v));
+header{
+background:#fff;
+border-bottom:1px solid #e5e7eb;
+position:sticky;
+top:0;
+z-index:10
 }
 
-function makeSlug(t=""){
-return t.toLowerCase().trim()
-.replace(/[^a-z0-9\s-]/g,"")
-.replace(/\s+/g,"-")
-.replace(/-+/g,"-");
+.nav{
+max-width:1100px;
+margin:auto;
+padding:13px 5%;
+display:flex;
+align-items:center;
+justify-content:space-between
 }
 
-function updateClock(){
-const now=new Date();
-const time=new Intl.DateTimeFormat("id-ID",{
-timeZone:"Asia/Jakarta",hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false
-}).format(now);
-$("liveClock").textContent=time+" WIB";
-}
-updateClock();
-setInterval(updateClock,1000);
-
-async function prepareImage(file){
-if(!file)return null;
-if(file.size<=2500000)return file;
-
-return await new Promise((resolve,reject)=>{
-const img=new Image();
-const url=URL.createObjectURL(file);
-
-img.onload=()=>{
-URL.revokeObjectURL(url);
-const max=2000;
-const scale=Math.min(1,max/Math.max(img.width,img.height));
-const canvas=document.createElement("canvas");
-canvas.width=Math.max(1,Math.round(img.width*scale));
-canvas.height=Math.max(1,Math.round(img.height*scale));
-const ctx=canvas.getContext("2d");
-ctx.drawImage(img,0,0,canvas.width,canvas.height);
-
-canvas.toBlob(blob=>{
-if(!blob){reject(new Error("Gagal memproses foto."));return;}
-resolve(new File([blob],"foto.jpg",{type:"image/jpeg"}));
-},"image/jpeg",0.82);
-};
-
-img.onerror=()=>{
-URL.revokeObjectURL(url);
-reject(new Error("Foto tidak dapat diproses."));
-};
-
-img.src=url;
-});
+.brand{
+font-size:21px;
+font-weight:800;
+text-decoration:none
 }
 
-async function loadPublicNews(){
-const box=$("newsList");
-if(!box)return;
-
-box.innerHTML='<div class="news-empty">Memuat berita...</div>';
-
-try{
-let query=db.from("news")
-.select("id,title,excerpt,content,image_url,category,published_at")
-.order("published_at",{ascending:false});
-
-if(currentCategory!=="Semua")query=query.eq("category",currentCategory);
-
-const result=await Promise.race([
-query,
-new Promise(resolve=>setTimeout(()=>resolve({data:null,error:{message:"Koneksi ke database terlalu lama."}}),10000))
-]);
-
-const{data,error}=result;
-
-if(error){
-box.innerHTML='<div class="news-empty">Berita belum dapat dimuat.<br><small>'+esc(error.message)+'</small><br><br><button type="button" onclick="loadPublicNews()">Coba lagi</button></div>';
-return;
+.menu{
+display:flex;
+gap:18px
 }
 
-if(!data||!data.length){
-box.innerHTML='<div class="news-empty">Belum ada berita yang dipublikasikan.</div>';
-return;
+.menu a{
+text-decoration:none;
+font-weight:700;
+font-size:14px
 }
 
-box.innerHTML=data.map(n=>`
-<article class="card">
-<div class="photo">${n.image_url?`<img src="${esc(n.image_url)}" alt="${esc(n.title)}">`:"Tidak ada foto"}</div>
-<div class="card-body">
-<span class="tag">${esc(n.category||"Berita")}</span>
-<h3>${esc(n.title)}</h3>
-<p>${esc(n.excerpt||"")}</p>
-<div class="date">${formatDate(n.published_at)}</div>
-<button type="button" class="read-btn" onclick="showNews('${n.id}')">Baca selengkapnya →</button>
-</div>
-</article>
-`).join("");
-
-}catch(e){
-box.innerHTML='<div class="news-empty">Berita belum dapat dimuat.<br><small>'+esc(e.message||"Terjadi kesalahan")+'</small></div>';
-}
+.hero{
+background:linear-gradient(125deg,#111827,#1f2937 55%,#0f766e);
+color:#fff
 }
 
-window.showNews=async function(id){
-const{data:n,error}=await db.from("news").select("*").eq("id",id).single();
-if(error||!n){alert("Berita tidak dapat dibuka.");return;}
-
-$("newsList").innerHTML=`
-<article class="card">
-<div class="photo">${n.image_url?`<img src="${esc(n.image_url)}" alt="${esc(n.title)}">`:"Tidak ada foto"}</div>
-<div class="card-body">
-<span class="tag">${esc(n.category||"Berita")}</span>
-<h1>${esc(n.title)}</h1>
-<div class="date">${formatDate(n.published_at)}</div>
-<div class="news-content">${esc(n.content||"").replace(/\n/g,"<br>")}</div>
-<button type="button" class="read-btn" onclick="loadPublicNews()">← Kembali ke berita</button>
-</div>
-</article>`;
-};
-
-window.filterNews=function(category,button){
-currentCategory=category;
-document.querySelectorAll(".category-filter button").forEach(b=>b.classList.remove("active"));
-if(button)button.classList.add("active");
-loadPublicNews();
-};
-
-async function refreshAdmin(){
-const{data:{session}}=await db.auth.getSession();
-
-if(session){
-$("loginBox").classList.add("hidden");
-$("adminPanel").classList.remove("hidden");
-$("adminUser").textContent="Login sebagai "+(session.user.email||"admin");
-await loadAdminNews();
-await loadGallery();
-}else{
-$("loginBox").classList.remove("hidden");
-$("adminPanel").classList.add("hidden");
-}
+.hero>div{
+max-width:1100px;
+margin:auto;
+padding:58px 5%
 }
 
-async function login(){
-const email=$("loginEmail").value.trim();
-const password=$("loginPassword").value;
-const msg=$("loginMsg");
-
-if(!email||!password){
-msg.textContent="Email dan password wajib diisi.";
-return;
+.eyebrow{
+font-size:13px;
+letter-spacing:2px;
+text-transform:uppercase;
+opacity:.8
 }
 
-msg.textContent="Memproses login...";
-
-const{error}=await db.auth.signInWithPassword({email,password});
-
-if(error){
-msg.textContent="Login gagal: "+error.message;
-return;
+.hero h1{
+font-size:clamp(38px,7vw,64px);
+line-height:1;
+margin:10px 0 16px
 }
 
-msg.textContent="";
-await refreshAdmin();
-location.hash="admin";
+.hero-card{
+max-width:680px;
+font-size:18px
 }
 
-async function logout(){
-await db.auth.signOut();
-editingId=null;
-resetForm();
-await refreshAdmin();
-location.hash="admin";
+main{
+padding:42px 5%
 }
 
-async function loadAdminNews(){
-const b=$("adminNewsList");
-const{data,error}=await db.from("news").select("*").order("created_at",{ascending:false});
-
-if(error){
-b.innerHTML='<p class="login-note">Daftar berita belum dapat dimuat: '+esc(error.message)+'</p>';
-return;
+.section{
+max-width:1100px;
+margin:0 auto 50px
 }
 
-if(!data||!data.length){
-b.innerHTML='<p class="login-note">Belum ada berita.</p>';
-return;
+.section-head{
+display:flex;
+align-items:end;
+justify-content:space-between;
+gap:15px;
+margin-bottom:18px
 }
 
-b.innerHTML=data.map(n=>`
-<div class="admin-row">
-<div>
-<strong>${esc(n.title)}</strong><br>
-<span class="login-note">${esc(n.category||"Berita")} • ${n.published_at?"Terbit "+formatDate(n.published_at):"Draft"}</span>
-</div>
-<div class="actions">
-<button type="button" class="secondary" onclick="editNews('${n.id}')">Edit</button>
-<button type="button" class="danger" onclick="deleteNews('${n.id}')">Hapus</button>
-</div>
-</div>
-`).join("");
+.section h2{
+margin:0;
+font-size:30px
 }
 
-async function loadGallery(){
-const box=$("galleryList");
-const adminList=$("galleryAdminList");
-
-if(box)box.innerHTML='<div class="news-empty">Memuat galeri...</div>';
-if(adminList)adminList.innerHTML="";
-
-const{data,error}=await db.from("gallery")
-.select("id,title,image_url,created_at")
-.order("created_at",{ascending:false});
-
-if(error){
-if(box)box.innerHTML='<div class="news-empty">Galeri belum dapat dimuat.</div>';
-console.error(error);
-return;
+.muted,.login-note{
+color:#667085
 }
 
-if(!data||!data.length){
-if(box)box.innerHTML='<div class="news-empty">Belum ada foto di galeri.</div>';
-return;
+.news-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px
 }
 
-if(box){
-box.innerHTML=data.map(g=>`
-<article class="card">
-<div class="photo"><img src="${esc(g.image_url)}" alt="${esc(g.title||"Dokumentasi Edipeni Media")}"></div>
-<div class="card-body">
-<h3>${esc(g.title||"Dokumentasi Edipeni Media")}</h3>
-<div class="date">${formatDate(g.created_at)}</div>
-</div>
-</article>
-`).join("");
+.card{
+background:#fff;
+border:1px solid #e5e7eb;
+border-radius:16px;
+overflow:hidden;
+box-shadow:0 5px 18px rgba(16,24,40,.05)
 }
 
-const{data:{session}}=await db.auth.getSession();
-
-if(session&&adminList){
-adminList.innerHTML=data.map(g=>`
-<div class="admin-row">
-<div>
-<strong>${esc(g.title||"Dokumentasi Edipeni Media")}</strong><br>
-<span class="login-note">${formatDate(g.created_at)}</span>
-</div>
-<div class="actions">
-<button type="button" class="secondary" onclick="editGallery('${g.id}')">Edit</button>
-<button type="button" class="danger" onclick="deleteGallery('${g.id}')">Hapus</button>
-</div>
-</div>
-`).join("");
-}
+.photo{
+height:200px;
+background:#e9eef1;
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+color:#667085;
+font-weight:700
 }
 
-async function saveGallery(){
-const rawFile=$("galleryImage").files[0];
-const title=$("galleryTitle").value.trim()||"Dokumentasi Edipeni Media";
-const msg=$("galleryMsg");
-
-if(!rawFile){
-alert("Pilih foto terlebih dahulu.");
-return;
+.photo img{
+width:100%;
+height:100%;
+object-fit:cover
 }
 
-try{
-msg.textContent="Menyiapkan foto...";
-const file=await prepareImage(rawFile);
-const ext=file.type==="image/jpeg"?"jpg":((file.name||"foto.jpg").split(".").pop()||"jpg").toLowerCase();
-const fileName=Date.now()+"-"+Math.random().toString(36).slice(2)+"."+ext;
-
-msg.textContent="Mengupload foto...";
-
-const{error:uploadError}=await db.storage.from("News-images").upload(fileName,file,{
-upsert:false,
-contentType:file.type||"image/jpeg"
-});
-
-if(uploadError){
-msg.textContent="";
-alert("Gagal upload foto: "+uploadError.message);
-return;
+.card-body{
+padding:20px
 }
 
-const{data:urlData}=db.storage.from("News-images").getPublicUrl(fileName);
-
-const{error}=await db.from("gallery").insert({
-title:title,
-image_url:urlData.publicUrl
-});
-
-if(error){
-msg.textContent="";
-alert("Gagal menyimpan galeri: "+error.message);
-return;
+.card h3{
+margin:9px 0 8px;
+font-size:20px;
+line-height:1.3
 }
 
-$("galleryTitle").value="";
-$("galleryImage").value="";
-msg.textContent="Foto berhasil ditambahkan.";
-await loadGallery();
-
-}catch(e){
-msg.textContent="";
-alert("Gagal upload foto: "+(e.message||"Terjadi kesalahan"));
-}
+.card-body h1{
+font-size:32px;
+line-height:1.25;
+margin:12px 0
 }
 
-window.editGallery=async function(id){
-const{data,error}=await db.from("gallery").select("title").eq("id",id).single();
-if(error){alert(error.message);return;}
-
-const title=prompt("Ubah judul foto:",data.title||"");
-if(title===null)return;
-
-const{error:updateError}=await db.from("gallery")
-.update({title:title.trim()||"Dokumentasi Edipeni Media"})
-.eq("id",id);
-
-if(updateError){
-alert("Gagal mengubah galeri: "+updateError.message);
-return;
+.card p{
+margin:0 0 12px;
+color:#667085;
+font-size:14px
 }
 
-await loadGallery();
-};
-
-window.deleteGallery=async function(id){
-if(!confirm("Hapus foto ini dari galeri?"))return;
-
-const{error}=await db.from("gallery").delete().eq("id",id);
-
-if(error){
-alert("Gagal menghapus galeri: "+error.message);
-return;
+.tag{
+display:inline-block;
+font-size:12px;
+font-weight:700;
+padding:5px 10px;
+border-radius:20px;
+background:#e8eef5
 }
 
-await loadGallery();
-};
-
-function resetForm(){
-editingId=null;
-$("formTitle").textContent="Tambah Berita";
-["newsTitle","newsSlug","newsExcerpt","newsContent","newsImage","newsCategory"].forEach(id=>$(id).value="");
-$("newsImageFile").value="";
-$("cancelBtn").classList.add("hidden");
-$("saveMsg").textContent="";
+.date{
+font-size:13px;
+color:#6b7280;
+margin:9px 0 16px
 }
 
-window.editNews=async function(id){
-const{data,error}=await db.from("news").select("*").eq("id",id).single();
-if(error){alert(error.message);return;}
-
-editingId=id;
-$("formTitle").textContent="Edit Berita";
-$("newsTitle").value=data.title||"";
-$("newsSlug").value=data.slug||"";
-$("newsExcerpt").value=data.excerpt||"";
-$("newsContent").value=data.content||"";
-$("newsImage").value=data.image_url||"";
-$("newsImageFile").value="";
-$("newsCategory").value=data.category||"";
-$("cancelBtn").classList.remove("hidden");
-location.hash="admin";
-};
-
-window.deleteNews=async function(id){
-if(!confirm("Hapus berita ini?"))return;
-
-const{error}=await db.from("news").delete().eq("id",id);
-
-if(error){
-alert("Gagal menghapus: "+error.message);
-return;
+.news-content{
+font-size:18px;
+line-height:1.8;
+color:#26313d
 }
 
-await loadAdminNews();
-await loadPublicNews();
-};
-
-async function saveNews(){
-const title=$("newsTitle").value.trim();
-
-if(!title){
-$("saveMsg").textContent="Judul wajib diisi.";
-return;
+button{
+border:0;
+border-radius:10px;
+padding:11px 16px;
+font:inherit;
+font-weight:800;
+cursor:pointer;
+background:#0f766e;
+color:#fff
 }
 
-$("saveMsg").textContent="Menyimpan...";
-
-try{
-let imageUrl=$("newsImage").value.trim();
-const rawFile=$("newsImageFile").files[0];
-
-if(rawFile){
-$("saveMsg").textContent="Menyiapkan foto...";
-const file=await prepareImage(rawFile);
-const ext=file.type==="image/jpeg"?"jpg":((file.name||"foto.jpg").split(".").pop()||"jpg").toLowerCase();
-const fileName=Date.now()+"-"+Math.random().toString(36).slice(2)+"."+ext;
-
-$("saveMsg").textContent="Mengupload foto...";
-
-const{error:uploadError}=await db.storage.from("News-images").upload(fileName,file,{
-upsert:false,
-contentType:file.type||"image/jpeg"
-});
-
-if(uploadError){
-$("saveMsg").textContent="Gagal upload foto: "+uploadError.message;
-return;
+button.secondary{
+background:#e5e7eb;
+color:#17212b
 }
 
-const{data:urlData}=db.storage.from("News-images").getPublicUrl(fileName);
-imageUrl=urlData.publicUrl;
+button.danger{
+background:#b42318
 }
 
-const payload={
-title:title,
-slug:$("newsSlug").value.trim()||makeSlug(title),
-excerpt:$("newsExcerpt").value.trim(),
-content:$("newsContent").value.trim(),
-image_url:imageUrl,
-category:$("newsCategory").value.trim()||"Berita",
-published_at:new Date().toISOString()
-};
-
-let result;
-
-if(editingId){
-result=await db.from("news").update(payload).eq("id",editingId);
-}else{
-result=await db.from("news").insert(payload);
+.actions{
+display:flex;
+gap:8px;
+flex-wrap:wrap
 }
 
-if(result.error){
-$("saveMsg").textContent="Gagal: "+result.error.message;
-return;
+.admin-box{
+background:#fff;
+border:1px solid #e5e7eb;
+border-radius:16px;
+padding:22px
 }
 
-resetForm();
-$("saveMsg").textContent="Berhasil disimpan.";
-await loadAdminNews();
-await loadPublicNews();
-
-}catch(e){
-$("saveMsg").textContent="Gagal: "+(e.message||"Terjadi kesalahan");
+input,textarea{
+width:100%;
+padding:12px 13px;
+border:1px solid #cbd5e1;
+border-radius:10px;
+font:inherit;
+margin:6px 0 12px
 }
+
+textarea{
+min-height:130px;
+resize:vertical
 }
 
-$("loginBtn").addEventListener("click",login);
-$("logoutBtn").addEventListener("click",logout);
-$("saveBtn").addEventListener("click",saveNews);
-$("cancelBtn").addEventListener("click",resetForm);
-$("gallerySaveBtn").addEventListener("click",saveGallery);
+.hidden{
+display:none!important
+}
 
-$("loginPassword").addEventListener("keydown",e=>{
-if(e.key==="Enter")login();
-});
+.news-empty{
+padding:30px;
+background:#fff;
+border:1px dashed #cbd5e1;
+border-radius:14px;
+color:#667085
+}
 
-$("newsTitle").addEventListener("input",()=>{
-if(!$("newsSlug").value)$("newsSlug").value=makeSlug($("newsTitle").value);
-});
+.admin-row{
+border-top:1px solid #e5e7eb;
+padding:14px 0;
+display:flex;
+justify-content:space-between;
+gap:15px;
+align-items:center
+}
 
-db.auth.onAuthStateChange(()=>{
-setTimeout(()=>refreshAdmin(),0);
-});
+.category-title{
+max-width:1100px;
+margin:0 auto 16px;
+font-size:30px
+}
 
-loadPublicNews();
-loadGallery();
-refreshAdmin();
-</script>
-</body>
-</html>
+.category-filter{
+max-width:1100px;
+margin:0 auto 48px;
+display:grid;
+grid-template-columns:repeat(6,1fr);
+gap:12px
+}
+
+.category-filter button{
+background:#fff;
+color:#17212b;
+border:1px solid #e5e7eb;
+min-height:60px
+}
+
+.category-filter button.active{
+background:#0f766e;
+color:#fff;
+border-color:#0f766e
+}
+
+.cats{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:14px
+}
+
+.cat{
+display:block;
+padding:18px;
+background:#fff;
+border:1px solid #e5e7eb;
+border-radius:14px;
+text-decoration:none;
+font-weight:700
+}
+
+footer{
+background:#0b111b;
+color:#c9d1dc;
+padding:32px 5%;
+margin-top:30px
+}
+
+.foot{
+max-width:1100px;
+margin:auto;
+display:flex;
+justify-content:space-between;
+gap:20px;
+flex-wrap:wrap
+}
+
+footer a{
+color:#fff
