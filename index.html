@@ -88,15 +88,14 @@ footer{padding:28px 18px}
 .foot{flex-direction:column;font-size:14px}
 }
 </style>
-
 <style>
-  /* Admin app: hide the public site interface */
-  #beranda,#berita,#rubrik,#galeri,#tentang,
-  .category-title,.category-filter,footer{display:none!important}
-  #admin{display:block!important;margin-top:0}
-  #admin .section-head{margin-top:0}
+#beranda,#berita,#rubrik,#galeri,#tentang,
+.category-title,.category-filter,footer{display:none!important}
+#admin{display:block!important;margin:0 auto!important}
 </style>
-
+<link rel="manifest" href="./manifest.json">
+<link rel="icon" href="./icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="./icon-192.png">
 </head>
 <body>
 
@@ -268,7 +267,14 @@ Follow Edipeni Media:<br>
 </div>
 </footer>
 
-<script>window.location.hash="admin";</script>
+<script>
+(function(){
+  const adminSection = document.getElementById("admin");
+  if (adminSection && window.location.hash === "#admin") {
+    adminSection.classList.remove("hidden");
+  }
+})();
+</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 "use strict";
@@ -757,14 +763,5 @@ loadPublicNews();
 loadGallery();
 refreshAdmin();
 </script>
-
-<script>
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js", {scope:"./"}).catch(console.error);
-  });
-}
-</script>
-
 </body>
 </html>
