@@ -262,7 +262,8 @@ Follow Edipeni Media:<br>
 <script>
 (function(){
   const adminSection = document.getElementById("admin");
-  if (adminSection && window.location.hash === "#admin") {
+  const params = new URLSearchParams(window.location.search);
+  if (adminSection && params.get("admin") === "1") {
     adminSection.classList.remove("hidden");
   }
 })();
@@ -448,7 +449,7 @@ return;
 
 msg.textContent="";
 await refreshAdmin();
-location.hash="admin";
+
 }
 
 async function logout(){
@@ -456,7 +457,7 @@ await db.auth.signOut();
 editingId=null;
 resetForm();
 await refreshAdmin();
-location.hash="admin";
+
 }
 
 async function loadAdminNews(){
@@ -647,7 +648,7 @@ $("newsImage").value=data.image_url||"";
 $("newsImageFile").value="";
 $("newsCategory").value=data.category||"";
 $("cancelBtn").classList.remove("hidden");
-location.hash="admin";
+
 };
 
 window.deleteNews=async function(id){
