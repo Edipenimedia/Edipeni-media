@@ -94,11 +94,17 @@ footer a{color:#fff}
 </section>
 
 <section class="section" id="rubrik">
-<div class="section-head"><div><h2>Rubrik</h2><div class="muted">Pilihan informasi Edipeni Media.</div></div></div>
+<div class="section-head"><div><h2>Rubrik</h2><div class="muted">Pilih rubrik untuk melihat berita sesuai kategori.</div></div></div>
 <div class="news-grid">
-<div class="admin-box"><strong>Berita Desa</strong><p class="muted">Kegiatan dan informasi pemerintahan desa.</p></div>
-<div class="admin-box"><strong>Munjungan</strong><p class="muted">Peristiwa, kegiatan, dan potensi masyarakat.</p></div>
-<div class="admin-box"><strong>Budaya</strong><p class="muted">Tradisi dan kegiatan kebudayaan lokal.</p></div>
+<button type="button" class="admin-box rubrik-btn" onclick="filterNews('Semua');location.hash='berita'">📰 Semua Berita</button>
+<button type="button" class="admin-box rubrik-btn" onclick="filterNews('Berita Desa');location.hash='berita'">🏘️ Berita Desa</button>
+<button type="button" class="admin-box rubrik-btn" onclick="filterNews('Munjungan');location.hash='berita'">📍 Munjungan</button>
+<button type="button" class="admin-box rubrik-btn" onclick="filterNews('Budaya');location.hash='berita'">🎭 Budaya</button>
+<button type="button" class="admin-box rubrik-btn" onclick="filterNews('Olahraga');location.hash='berita'">🏐 Olahraga</button>
+<button type="button" class="admin-box rubrik-btn" onclick="filterNews('UMKM');location.hash='berita'">🛍️ UMKM</button>
+<button type="button" class="admin-box rubrik-btn" onclick="filterNews('Kegiatan');location.hash='berita'">📅 Kegiatan</button>
+<button type="button" class="admin-box rubrik-btn" onclick="filterNews('Masyarakat');location.hash='berita'">👥 Masyarakat</button>
+<button type="button" class="admin-box rubrik-btn" onclick="filterNews('Trenggalek');location.hash='berita'">📌 Trenggalek</button>
 </div>
 </section>
 
