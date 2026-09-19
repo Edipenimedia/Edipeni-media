@@ -562,6 +562,7 @@ $("loginBox").classList.add("hidden");
 $("adminPanel").classList.remove("hidden");
 $("adminUser").textContent="Login sebagai "+session.user.email;
 await loadAdminNews();
+  await loadGallery();
 }else{
 $("loginBox").classList.remove("hidden");
 $("adminPanel").classList.add("hidden");
