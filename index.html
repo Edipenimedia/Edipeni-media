@@ -635,7 +635,7 @@ return;
 
 const parts=(file.name||"foto").split(".");
 const ext=parts.length>1?parts.pop().toLowerCase():"jpg";
-const fileName=Date.now()+"-"+crypto.randomUUID()+"."+ext;
+const fileName=Date.now()+"-"+Math.random().toString(36).slice(2)+"."+ext;
 
 const{error:uploadError}=await db
 .storage
