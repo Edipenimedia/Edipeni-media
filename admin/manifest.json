@@ -1,21 +1,28 @@
 {
+  "id": "./",
   "name": "Edipeni Media Admin",
   "short_name": "Edipeni Admin",
-  "start_url": "./",
+  "description": "Panel Admin Edipeni Media",
+  "lang": "id-ID",
+  "start_url": "./?admin=1",
   "scope": "./",
   "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
   "background_color": "#f4f7f8",
   "theme_color": "#111827",
+  "orientation": "portrait-primary",
   "icons": [
     {
       "src": "../icon-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "../icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
