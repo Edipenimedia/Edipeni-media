@@ -88,6 +88,15 @@ footer{padding:28px 18px}
 .foot{flex-direction:column;font-size:14px}
 }
 </style>
+
+<style>
+  /* Admin app: hide the public site interface */
+  #beranda,#berita,#rubrik,#galeri,#tentang,
+  .category-title,.category-filter,footer{display:none!important}
+  #admin{display:block!important;margin-top:0}
+  #admin .section-head{margin-top:0}
+</style>
+
 </head>
 <body>
 
@@ -172,7 +181,7 @@ Ruang informasi lokal untuk berita, kegiatan, dan cerita dari masyarakat.
 </div>
 </section>
 
-<section class="section hidden" id="admin">
+<section class="section" id="admin">
 <div class="section-head">
 <div><h2>Admin</h2><div class="muted">Kelola berita dan galeri Edipeni Media.</div></div>
 </div>
@@ -259,18 +268,7 @@ Follow Edipeni Media:<br>
 </div>
 </footer>
 
-<script>
-(function(){
-  const adminSection = document.getElementById("admin");
-  const params = new URLSearchParams(window.location.search);
-  const isAdmin = window.location.hash === "#admin" || params.get("admin") === "1";
-
-  if (adminSection && isAdmin) {
-    adminSection.classList.remove("hidden");
-    setTimeout(() => adminSection.scrollIntoView({behavior:"smooth", block:"start"}), 100);
-  }
-})();
-</script>
+<script>window.location.hash="admin";</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 "use strict";
@@ -759,5 +757,14 @@ loadPublicNews();
 loadGallery();
 refreshAdmin();
 </script>
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js", {scope:"./"}).catch(console.error);
+  });
+}
+</script>
+
 </body>
 </html>
