@@ -582,7 +582,7 @@ $("adminPanel").classList.add("hidden");
 }
 }
 
-async async function loadAdminNews(){
+async function loadAdminNews(){
 const{data,error}=await db.from("news").select("*").order("created_at",{ascending:false});
 const b=$("adminNewsList");
 if(error){b.innerHTML='<p class="login-note">Daftar berita belum dapat dimuat. Pastikan policy RLS sudah benar.</p>';return}
