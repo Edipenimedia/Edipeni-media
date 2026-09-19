@@ -589,7 +589,7 @@ if(error){b.innerHTML='<p class="login-note">Daftar berita belum dapat dimuat. P
 if(!data||!data.length){b.innerHTML='<p class="login-note">Belum ada berita.</p>';return}
 b.innerHTML=data.map(n=>`<div class="admin-row"><div><strong>${esc(n.title)}</strong><br><span class="login-note">${esc(n.category||"Berita")} • ${n.published_at?"Terbit "+date(n.published_at):"Draft"}</span></div><div class="actions"><button class="secondary" onclick="editNews('${n.id}')">Edit</button><button class="danger" onclick="deleteNews('${n.id}')">Hapus</button></div></div>`).join("");
 }
-async async function loadGallery(){
+async function loadGallery(){
 const box=$("galleryList");
 if(!box)return;
 
