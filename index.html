@@ -484,7 +484,7 @@ setInterval(updateClock,1000);
 <button onclick="filterNews('Kegiatan',this)">Kegiatan</button>
 </div>
 <section class="section" id="rubrik"><div class="section-head"><div><h2>Rubrik</h2></div></div><div class="cats"><a class="cat" href="#berita">📰 Berita</a><a class="cat" href="#berita">👥 Masyarakat</a><a class="cat" href="#berita">🏘️ Desa</a><a class="cat" href="#berita">🏐 Olahraga</a></div></section>
-<section class="section" id="galeri"><div class="section-head"><div><h2>Galeri</h2><div class="muted">Dokumentasi Edipeni Media.</div></div></div><div class="card"><div class="photo"><img src="https://ppwcvkfvcxalcpiqzyln.supabase.co/storage/v1/object/public/News-images/penutup_edipeni_media_follow_sosmed_facebook_4x5-1.png" alt="Edipeni Media"></div></div></section>
+<section class="section" id="galeri"><div class="section-head"><div><h2>Galeri</h2><div class="muted">Dokumentasi Edipeni Media.</div></div></div><div id="galleryList" class="news-grid"><div class="news-empty">Memuat galeri...</div></div></section>
 <section class="section" id="tentang"><div class="section-head"><div><h2>Tentang Edipeni Media</h2></div></div><div class="admin-box"><strong>Suara Desa, Membangun Indonesia.</strong><p>Edipeni Media merupakan media informasi lokal yang menyajikan berita, kegiatan, dan informasi masyarakat secara digital.</p></div></section>
 <section class="section" id="admin"><div class="section-head"><div><h2>Admin Berita</h2><div class="muted">Kelola berita Edipeni Media melalui Supabase.</div></div></div>
 <div id="loginBox" class="admin-box"><h3>Login Admin</h3><label>Email</label><input id="loginEmail" type="email" placeholder="Email admin"><label>Password</label><input id="loginPassword" type="password" placeholder="Password"><div class="actions"><button id="loginBtn">Login</button></div><p id="loginMsg" class="login-note"></p></div>
@@ -501,15 +501,7 @@ setInterval(updateClock,1000);
 <button onclick="saveGallery()">Tambah Foto</button>
 </div>
 <div id="galleryAdminList"></div></div></section><hr style="margin:30px 0">
-<h3>Kelola Galeri</h3>
-<label>Judul Foto</label>
-<input id="galleryTitle" type="text" placeholder="Judul foto">
-<label>Foto</label>
-<input id="galleryImage" type="file" accept="image/*">
-<div class="actions">
-<button onclick="saveGallery()">Tambah Foto</button>
-</div>
-<div id="galleryAdminList"></div>
+
 </main>
 <footer><div class="foot"><div><strong>EDIPENI MEDIA</strong><br>Suara Desa, Membangun Indonesia.</div><div>Follow Edipeni Media:<br><a href="https://instagram.com/edipeni.media" target="_blank">Instagram</a> • <a href="https://threads.net/@edipeni.media" target="_blank">Threads</a> • <a href="https://tiktok.com/@edipenimedia" target="_blank">TikTok</a> • <a href="https://youtube.com/@EdipeniMedia" target="_blank">YouTube</a> • <a href="https://facebook.com/" target="_blank">Facebook</a></div></div></footer>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -587,14 +579,144 @@ $("adminPanel").classList.add("hidden");
 }
 }
 
-async function loadAdminNews(){
+async async function loadAdminNews(){
 const{data,error}=await db.from("news").select("*").order("created_at",{ascending:false});
 const b=$("adminNewsList");
 if(error){b.innerHTML='<p class="login-note">Daftar berita belum dapat dimuat. Pastikan policy RLS sudah benar.</p>';return}
 if(!data||!data.length){b.innerHTML='<p class="login-note">Belum ada berita.</p>';return}
 b.innerHTML=data.map(n=>`<div class="admin-row"><div><strong>${esc(n.title)}</strong><br><span class="login-note">${esc(n.category||"Berita")} • ${n.published_at?"Terbit "+date(n.published_at):"Draft"}</span></div><div class="actions"><button class="secondary" onclick="editNews('${n.id}')">Edit</button><button class="danger" onclick="deleteNews('${n.id}')">Hapus</button></div></div>`).join("");
 }
+async async function loadGallery(){
+const box=$("galleryList");
+if(!box)return;
 
+box.innerHTML='<div class="news-empty">Memuat galeri...</div>';
+
+const{data,error}=await db
+.from("gallery")
+.select("id,title,image_url,created_at")
+.order("created_at",{ascending:false});
+
+if(error){
+box.innerHTML='<div class="news-empty">Galeri belum dapat dimuat.</div>';
+console.error(error);
+return;
+}
+
+if(!data||!data.length){
+box.innerHTML='<div class="news-empty">Belum ada foto di galeri.</div>';
+return;
+}
+
+box.innerHTML=data.map(g=>`
+<article class="card">
+<div class="photo">
+<img src="${esc(g.image_url)}" alt="${esc(g.title||"Dokumentasi Edipeni Media")}">
+</div>
+<div class="card-body">
+<h3>${esc(g.title||"Dokumentasi Edipeni Media")}</h3>
+<div class="date">${date(g.created_at)}</div>
+</div>
+</article>
+`).join("");
+}
+
+async function saveGallery(){
+const file=$("galleryImage").files[0];
+const title=$("galleryTitle").value.trim()||"Dokumentasi Edipeni Media";
+
+if(!file){
+alert("Pilih foto terlebih dahulu.");
+return;
+}
+
+const parts=(file.name||"foto").split(".");
+const ext=parts.length>1?parts.pop().toLowerCase():"jpg";
+const fileName=Date.now()+"-"+crypto.randomUUID()+"."+ext;
+
+const{error:uploadError}=await db
+.storage
+.from("News-images")
+.upload(fileName,file,{
+upsert:false,
+contentType:file.type||"image/jpeg"
+});
+
+if(uploadError){
+alert("Gagal upload foto: "+uploadError.message);
+return;
+}
+
+const{data:urlData}=db
+.storage
+.from("News-images")
+.getPublicUrl(fileName);
+
+const{error}=await db
+.from("gallery")
+.insert({
+title:title,
+image_url:urlData.publicUrl
+});
+
+if(error){
+alert("Gagal menyimpan galeri: "+error.message);
+return;
+}
+
+$("galleryTitle").value="";
+$("galleryImage").value="";
+
+alert("Foto berhasil ditambahkan.");
+await loadGallery();
+}
+
+window.editGallery=async id=>{
+const{data,error}=await db
+.from("gallery")
+.select("title")
+.eq("id",id)
+.single();
+
+if(error){
+alert(error.message);
+return;
+}
+
+const title=prompt("Ubah judul foto:",data.title||"");
+
+if(title===null)return;
+
+const{error:updateError}=await db
+.from("gallery")
+.update({
+title:title.trim()||"Dokumentasi Edipeni Media"
+})
+.eq("id",id);
+
+if(updateError){
+alert("Gagal mengubah galeri: "+updateError.message);
+return;
+}
+
+await loadGallery();
+};
+
+window.deleteGallery=async id=>{
+if(!confirm("Hapus foto ini dari galeri?"))return;
+
+const{error}=await db
+.from("gallery")
+.delete()
+.eq("id",id);
+
+if(error){
+alert("Gagal menghapus galeri: "+error.message);
+return;
+}
+
+await loadGallery();
+};
 async function login(){
 $("loginMsg").textContent="Memproses...";
 const{error}=await db.auth.signInWithPassword({email:$("loginEmail").value.trim(),password:$("loginPassword").value});
