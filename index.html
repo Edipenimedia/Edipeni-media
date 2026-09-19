@@ -491,7 +491,25 @@ setInterval(updateClock,1000);
 <div id="adminPanel" class="admin-box hidden"><div class="section-head"><div><h3 id="formTitle">Tambah Berita</h3><div id="adminUser" class="login-note"></div></div><div class="actions"><button id="logoutBtn" class="secondary">Logout</button></div></div>
 <label>Judul</label><input id="newsTitle" placeholder="Judul berita"><label>Slug</label><input id="newsSlug" placeholder="contoh-judul-berita"><label>Ringkasan</label><textarea id="newsExcerpt" placeholder="Ringkasan singkat berita"></textarea><label>Isi berita</label><textarea id="newsContent" placeholder="Isi lengkap berita"></textarea>
 <label>Foto berita</label><input id="newsImageFile" type="file" accept="image/*"><input id="newsImage" placeholder="URL gambar (opsional)"><div class="login-note">Pilih foto langsung dari HP. URL gambar hanya digunakan jika Anda tidak memilih file.</div>
-<label>Kategori</label><input id="newsCategory" placeholder="Berita Desa"><div class="actions"><button id="saveBtn">Simpan Berita</button><button id="cancelBtn" class="secondary hidden">Batal Edit</button></div><p id="saveMsg" class="login-note"></p><h3>Daftar Berita</h3><div id="adminNewsList"></div></div></section>
+<label>Kategori</label><input id="newsCategory" placeholder="Berita Desa"><div class="actions"><button id="saveBtn">Simpan Berita</button><button id="cancelBtn" class="secondary hidden">Batal Edit</button></div><p id="saveMsg" class="login-note"></p><h3>Daftar Berita</h3><div id="adminNewsList"></div><hr style="margin:30px 0">
+<h3>Kelola Galeri</h3>
+<label>Judul Foto</label>
+<input id="galleryTitle" type="text" placeholder="Judul foto">
+<label>Foto</label>
+<input id="galleryImage" type="file" accept="image/*">
+<div class="actions">
+<button onclick="saveGallery()">Tambah Foto</button>
+</div>
+<div id="galleryAdminList"></div></div></section><hr style="margin:30px 0">
+<h3>Kelola Galeri</h3>
+<label>Judul Foto</label>
+<input id="galleryTitle" type="text" placeholder="Judul foto">
+<label>Foto</label>
+<input id="galleryImage" type="file" accept="image/*">
+<div class="actions">
+<button onclick="saveGallery()">Tambah Foto</button>
+</div>
+<div id="galleryAdminList"></div>
 </main>
 <footer><div class="foot"><div><strong>EDIPENI MEDIA</strong><br>Suara Desa, Membangun Indonesia.</div><div>Follow Edipeni Media:<br><a href="https://instagram.com/edipeni.media" target="_blank">Instagram</a> • <a href="https://threads.net/@edipeni.media" target="_blank">Threads</a> • <a href="https://tiktok.com/@edipenimedia" target="_blank">TikTok</a> • <a href="https://youtube.com/@EdipeniMedia" target="_blank">YouTube</a> • <a href="https://facebook.com/" target="_blank">Facebook</a></div></div></footer>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
