@@ -4,13 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Edipeni Media — Suara Desa, Membangun Indonesia.">
-<meta name="theme-color" content="#111827">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Edipeni Media">
-<link rel="manifest" href="./manifest.json">
-<link rel="icon" href="./icon-192.png" type="image/png">
-<link rel="apple-touch-icon" href="./icon-192.png">
 <title>Edipeni Media — Suara Desa, Membangun Indonesia.</title>
 <style>
 *{box-sizing:border-box}
@@ -112,7 +105,7 @@ Munjungan • Trenggalek • Jawa Timur
 <a href="#rubrik">Rubrik</a>
 <a href="#galeri">Galeri</a>
 <a href="#tentang">Tentang</a>
-<a href="#admin">Admin</a>
+
 </nav>
 </div>
 </header>
@@ -179,7 +172,7 @@ Ruang informasi lokal untuk berita, kegiatan, dan cerita dari masyarakat.
 </div>
 </section>
 
-<section class="section" id="admin">
+<section class="section hidden" id="admin">
 <div class="section-head">
 <div><h2>Admin</h2><div class="muted">Kelola berita dan galeri Edipeni Media.</div></div>
 </div>
@@ -266,6 +259,14 @@ Follow Edipeni Media:<br>
 </div>
 </footer>
 
+<script>
+(function(){
+  const adminSection = document.getElementById("admin");
+  if (adminSection && window.location.hash === "#admin") {
+    adminSection.classList.remove("hidden");
+  }
+})();
+</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 "use strict";
